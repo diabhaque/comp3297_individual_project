@@ -1,3 +1,5 @@
 ui/node_modules
 ui/build
+backend/db.sqlite3
+backend/data_retriever/migrations/0003_auto_20210314_0602.py
 .vscode
