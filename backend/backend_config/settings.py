@@ -27,7 +27,7 @@ SECRET_KEY = 'd75=%)^3jwippolihw_y$9njaxf%quw4dedx8%^ww2dsfa8_ua'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'cov-retrieve.herokuapp.com/',
+    'cov-retrieve.herokuapp.com',
     'localhost',
     '127.0.0.1'
 ]
