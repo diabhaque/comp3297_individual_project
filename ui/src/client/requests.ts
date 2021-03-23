@@ -2,7 +2,7 @@ import { getHostName } from "./utils";
 import { Location, LocationData } from "../types/locationTypes";
 
 export const getLocations = (): Promise<Location[]> => {
-    const url = new URL(`http://${getHostName()}/api/locations`);
+    const url = new URL(`https://${getHostName()}/api/locations`);
     const request = new Request(url.toString());
 
     return fetch(request)
@@ -11,7 +11,7 @@ export const getLocations = (): Promise<Location[]> => {
 };
 
 export const addLocation = (location: Location): Promise<Location | null> => {
-    const request = new Request(`http://${getHostName()}/api/locations/`, {
+    const request = new Request(`https://${getHostName()}/api/locations/`, {
         method: "post",
         headers: {
             "Content-type": "application/json; charset=UTF-8"
