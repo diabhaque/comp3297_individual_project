@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Modal, Button, Form, Input, InputNumber } from "antd";
 import { Location } from "../types/locationTypes";
+import { url } from "node:inspector";
 
 interface AddLocationModalProps {
     onSubmit: (location: Location) => void;
@@ -104,7 +105,8 @@ const CollectionCreateForm = ({
                     rules={[
                         {
                             required: true,
-                            message: "Please input the API Endpoint!"
+                            message: "Please input a valid URL! (e.g. https://www.google.com)",
+                            type: 'url'
                         }
                     ]}
                 >
@@ -117,7 +119,8 @@ const CollectionCreateForm = ({
                     rules={[
                         {
                             required: true,
-                            message: "Please input the Current Estimated Population!"
+                            message: "Please input a valid URL! (e.g. https://www.google.com)",
+                            type: 'url'
                         }
                     ]}
                 >
