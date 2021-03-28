@@ -15,12 +15,13 @@ export const LocationSelector = ({
 }: LocationSelectorProps) => {
 
     const options = locations.map((location)=><Option key={location.name} value={location.name}>{location.name}</Option>)
+
     return (
         <Select
             showSearch
             style={{ width: 200 }}
             onChange={onChange}
-            defaultValue={"Hong Kong"}
+            defaultValue={undefined}
             placeholder="Search to Select"
             optionFilterProp="children"
             filterOption={(input, option) =>

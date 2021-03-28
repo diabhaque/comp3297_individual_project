@@ -85,7 +85,7 @@ const CollectionCreateForm = ({
                 </Form.Item>
 
                 <Form.Item
-                    name="population_size"
+                    name="populationSize"
                     label="Current Estimated Population"
                     rules={[
                         {
@@ -98,7 +98,7 @@ const CollectionCreateForm = ({
                 </Form.Item>
 
                 <Form.Item
-                    name="api_endpoint"
+                    name="apiEndpoint"
                     label="API Endpoint"
                     rules={[
                         {
@@ -112,7 +112,7 @@ const CollectionCreateForm = ({
                 </Form.Item>
 
                 <Form.Item
-                    name="resource_url"
+                    name="resourceURL"
                     label="URL of Resource"
                     rules={[
                         {

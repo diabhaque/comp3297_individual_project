@@ -35,7 +35,7 @@ export const Home = () => {
     }, []);
 
     useEffect(() => {
-        if (currentLocation !== null) {
+        if (currentLocation) {
             getLocationData(currentLocation).then((r) => {
                 if (r !== null) {
                     setCurrentLocationData(r[0]);
@@ -57,7 +57,7 @@ export const Home = () => {
     const onAddLocationSubmit = (location: Location) => {
         // CHECK FOR CORRECT RESPONSE
         addLocation(location).then((r) => {
-            if (r !== null) {
+            if (r) {
                 setLocations(locations.concat([r]));
             } else {
                 console.log("Error!");

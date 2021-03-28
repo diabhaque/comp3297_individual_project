@@ -1,3 +1,4 @@
 export const getHostName = (): string => {
-    return "cov-retrieve.herokuapp.com"; // localhost:8000 fix with env variables.
+    return "cov-retrieve.herokuapp.com"; 
+    // return "localhost:8000"
 };
