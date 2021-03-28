@@ -4,8 +4,18 @@ import { addLocation, getLocations, getLocationData } from "../client/requests";
 import { AddLocationModal } from "./AddLocationModal";
 import { LocationDataTable } from "./LocationDataTable";
 import { LocationSelector } from "./LocationSelector";
+import { Button, notification, Space } from 'antd';
 import "antd/dist/antd.css";
 import { ValueType } from "rc-input-number/lib/utils/MiniDecimal";
+import { IconType } from "antd/lib/notification/index";
+
+const openNotificationWithIcon = (type: IconType, title: string, body: string) => {
+    notification[type]({
+      message: title,
+      description: body,
+      placement: 'bottomLeft'
+    });
+  };
 
 export const Home = () => {
     const [locations, setLocations] = useState<Location[]>([]);
@@ -21,11 +31,13 @@ export const Home = () => {
         let isCancelled = false;
 
         getLocations().then((r) => {
-            if (!isCancelled) {
+            if (!isCancelled && r) {
                 setLocations(r);
                 setCurrentLocation(
                     r.filter((location) => location.name === "Hong Kong")[0]
                 );
+            }else{
+                openNotificationWithIcon('error', 'Error', 'Unable to retrieve location data!')
             }
         });
 
@@ -41,6 +53,7 @@ export const Home = () => {
                     setCurrentLocationData(r[0]);
                 } else {
                     console.log("Could not retrieve location data!");
+                    openNotificationWithIcon('error', 'Error', 'Unable to retrieve location data!')
                 }
             });
         }
@@ -61,6 +74,7 @@ export const Home = () => {
                 setLocations(locations.concat([r]));
             } else {
                 console.log("Error!");
+                openNotificationWithIcon('error', 'Error', 'Unable to add location to database!')
             }
         });
     };

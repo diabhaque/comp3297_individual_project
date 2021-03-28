@@ -1,13 +1,17 @@
-import { getHostName } from "./utils";
 import { Location, LocationData } from "../types/locationTypes";
+import { getHostName } from "./utils";
 
-export const getLocations = (): Promise<Location[]> => {
+export const getLocations = (): Promise<Location[] | null> => {
     const url = new URL(`https://${getHostName()}/api/locations`);
     const request = new Request(url.toString());
 
     return fetch(request)
         .then((r) => r.json())
-        .then((r) => r as Location[]);
+        .then((r) => r as Location[])
+        .catch((err) => {
+            console.log(err)
+            return null
+        });
 };
 
 export const addLocation = (location: Location): Promise<Location | null> => {
@@ -31,6 +35,10 @@ export const addLocation = (location: Location): Promise<Location | null> => {
             } else {
                 return null;
             }
+        })
+        .catch((err) => {
+            console.log(err)
+            return null
         });
 };
 
@@ -60,5 +68,9 @@ export const getLocationData = (location: Location): Promise<LocationData[] | nu
             } else {
                 return null;
             }
+        })
+        .catch((err)=>{
+            console.log(err)
+            return null
         });
 };
