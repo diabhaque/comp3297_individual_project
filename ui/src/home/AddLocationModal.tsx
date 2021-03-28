@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Modal, Button, Form, Input, InputNumber } from "antd";
 import { Location } from "../types/locationTypes";
-import { url } from "node:inspector";
-
 interface AddLocationModalProps {
     onSubmit: (location: Location) => void;
 }

@@ -9,6 +9,8 @@ djangorestframework = "*"
 django-cors-headers = "*"
 gunicorn = "*"
 whitenoise = "*"
+psycopg2-binary = "*"
+environs = {extras = ["django"], version = "*"}
 
 [dev-packages]
 
