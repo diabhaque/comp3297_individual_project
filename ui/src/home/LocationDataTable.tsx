@@ -1,8 +1,8 @@
 import { Table } from "antd";
-import { LocationData } from "../types/locationTypes";
+import { LocationData, NewLocationData } from "../types/locationTypes";
 
 interface LocationDataTableProps {
-    locationData: LocationData;
+    locationData: NewLocationData;
 }
 
 export const LocationDataTable = ({ locationData }: LocationDataTableProps) => {

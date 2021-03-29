@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { Location, LocationData } from "../types/locationTypes";
-import { addLocation, getLocations, getLocationData } from "../client/requests";
+import { Location, LocationData, NewLocationData } from "../types/locationTypes";
+import { addLocation, getLocations, getLocationData, getNewLocationData } from "../client/requests";
 import { AddLocationModal } from "./AddLocationModal";
 import { LocationDataTable } from "./LocationDataTable";
 import { LocationSelector } from "./LocationSelector";
-import { Button, notification, Space } from 'antd';
+import { notification } from 'antd';
 import "antd/dist/antd.css";
 import { ValueType } from "rc-input-number/lib/utils/MiniDecimal";
 import { IconType } from "antd/lib/notification/index";
@@ -25,7 +25,7 @@ export const Home = () => {
     const [
         currentLocationData,
         setCurrentLocationData
-    ] = useState<LocationData | null>(null);
+    ] = useState<NewLocationData | null>(null);
 
     useEffect(() => {
         let isCancelled = false;
@@ -48,14 +48,14 @@ export const Home = () => {
 
     useEffect(() => {
         if (currentLocation) {
-            getLocationData(currentLocation).then((r) => {
+            getNewLocationData(currentLocation).then((r)=>{
                 if (r !== null) {
                     setCurrentLocationData(r[0]);
                 } else {
                     console.log("Could not retrieve location data!");
                     openNotificationWithIcon('error', 'Error', 'Unable to retrieve location data!')
                 }
-            });
+            })
         }
     }, [currentLocation]);
 
